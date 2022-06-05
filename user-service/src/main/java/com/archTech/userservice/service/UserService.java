@@ -26,18 +26,9 @@ public class UserService {
         return userRepository.save(user);
     }
 
-
-    public ResponseTemplateVO getUserWithDepartment(Long userId) {
-        log.info("Inside getUserWithDepartment of userService");
-        ResponseTemplateVO vo = new ResponseTemplateVO();
-        User user = userRepository.findByUserId(userId);
-
-        Department department = restTemplate.getForObject("http://DEPARTMENT-SERVICE/departments" + user.getDepartmentId(), Department.class);
-
-        vo.setUser(user);
-        vo.setDepartment(department);
-
-        return  vo;
+    public User findUserById(Long userId)
+    {
+        return  userRepository.findByUserId(userId);
     }
 
 

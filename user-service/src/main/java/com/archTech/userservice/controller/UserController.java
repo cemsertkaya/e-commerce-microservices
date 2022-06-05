@@ -18,16 +18,16 @@ public class UserController
     private UserService userService;
 
     @PostMapping("/")
-    public User saveUser(@RequestBody  User user) {
+    public User saveUser(@RequestBody User user) {
         log.info("Inside saveUser of userController");
         return userService.saveUser(user);
     }
 
     @GetMapping("/{id}")
-    public ResponseTemplateVO getUserWithDepartment(@PathVariable("id") Long userId)
+    public User getUserWithId(@PathVariable("id") Long userId)
     {
         log.info("Inside getUserWithDepartment of UserController");
-        return  userService.getUserWithDepartment(userId);
+        return  userService.findUserById(userId);
     }
 
 }
