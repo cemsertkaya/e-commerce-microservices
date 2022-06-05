@@ -1,5 +1,6 @@
 package com.archTech.OrderService.controller;
 
+import com.archTech.OrderService.VO.ResponseTemplateVO;
 import com.archTech.OrderService.entity.Order;
 import com.archTech.OrderService.service.OrderService;
 import lombok.extern.slf4j.Slf4j;
@@ -20,10 +21,8 @@ public class OrderController
     {
         return orderService.addOrder(order);
     }
-
     @GetMapping("/{id}")
-    public Order getOrderWithId(@PathVariable("id") Long orderId)
-    {
-        return orderService.findOrderById(orderId);
+    public ResponseTemplateVO getOrderWithProducts(@PathVariable("id") Long orderId) {
+        return orderService.getOrderWithProducts(orderId);
     }
 }
