@@ -16,7 +16,7 @@ public class PaymentController
     private PaymentService paymentService;
 
     @PostMapping("/")
-    public Payment saveProduct(@RequestBody Payment payment)
+    public Payment savePayment(@RequestBody Payment payment)
     {
         log.info("Inside saveProduct of productController");
         return paymentService.makePayment(payment);
