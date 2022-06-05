@@ -1,7 +1,5 @@
 package com.archTech.userservice.service;
 
-import com.archTech.userservice.VO.Department;
-import com.archTech.userservice.VO.ResponseTemplateVO;
 import com.archTech.userservice.entity.User;
 import com.archTech.userservice.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
