@@ -16,15 +16,15 @@ public class PaymentController
     private PaymentService paymentService;
 
     @PostMapping("/")
-    public Payment saveProduct(@RequestBody Payment product)
+    public Payment saveProduct(@RequestBody Payment payment)
     {
         log.info("Inside saveProduct of productController");
-        return paymentService.saveProduct(product);
+        return paymentService.makePayment(payment);
     }
 
     @GetMapping("/{id}")
-    public Payment getProductWithId(@PathVariable("id") Long productId)
+    public Payment getPaymentWithId(@PathVariable("id") Long paymentId)
     {
-        return paymentService.findProductById(productId);
+        return paymentService.findProductById(paymentId);
     }
 }

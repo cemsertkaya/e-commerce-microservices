@@ -19,10 +19,10 @@ public class PaymentService {
     @Autowired
     private RestTemplate restTemplate;
 
-    public Payment saveProduct(Payment payment)
+    public Payment makePayment(Payment payment)
     {
         return  paymentRepository.save(payment);
     }
 
-    public Payment findProductById(Long paymentId) {return paymentRepository.findByProductId(paymentId);}
+    public Payment findProductById(Long paymentId) {return paymentRepository.findByPaymentId(paymentId);}
 }
