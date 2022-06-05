@@ -9,7 +9,7 @@ import com.egebilmuh.ecommerce.entity.*;
 class provides the mechanism for storage, retrieval, update, delete and search operation on objects.*/
 
 @Repository
-public interface DepartmentRepository extends JpaRepository<Object, Long>
+public interface DepartmentRepository extends JpaRepository<Department, Long>
 {
     Department findByDepartmentId(Long departmentId);
 }
