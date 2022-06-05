@@ -1,4 +1,4 @@
-package com.archTech.paymentservice;
+package com.archTech.product;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,14 +8,15 @@ import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @EnableEurekaClient
-public class PaymentServiceApplication {
+public class ProductApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(PaymentServiceApplication.class, args);
+		SpringApplication.run(ProductApplication.class, args);
 	}
 
 	@Bean
 	public RestTemplate restTemplate() {
 		return new RestTemplate();
 	}
+
 }

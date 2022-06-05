@@ -1,9 +1,8 @@
 package com.archTech.paymentservice.service;
 
+
 import com.archTech.paymentservice.entity.Payment;
 import com.archTech.paymentservice.repository.PaymentRepository;
-import com.archTech.product.entity.Product;
-import com.archTech.product.repository.ProductRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

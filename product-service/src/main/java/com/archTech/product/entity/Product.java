@@ -1,4 +1,5 @@
-package com.archTech.paymentservice.entity;
+package com.archTech.product.entity;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,13 +11,17 @@ import javax.persistence.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "payments")
-public class Payment
-{
+@Table(name = "products")
+public class Product {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long paymentId;
-    private Double totalPrice;
-    private Long customerId;
-    private Long creditCardNumber;
+    private Long productId;
+    private String productName;
+    private String category;
+    private Double price;
+    private Long amount;
+
+
+
 }
