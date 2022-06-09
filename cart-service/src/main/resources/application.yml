@@ -1,8 +1,8 @@
 server:
-  port: 9004
+  port: 9009
 
 spring:
   application:
-    name: ORDER-SERVICE
+    name: CART-SERVICE
   zipkin:
     base-url: http://127.0.0.1:9411/
