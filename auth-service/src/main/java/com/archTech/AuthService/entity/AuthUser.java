@@ -1,4 +1,4 @@
-package com.archTech.userservice.entity;
+package com.archTech.AuthService.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,13 +10,13 @@ import javax.persistence.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "users")
-public class User {
+@Table(name = "auth")
+public class AuthUser {
 
     @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
-    private String firstName;
-    private String lastName;
     private String email;
+    private byte[] passwordHash;
+    private byte[] passwordSalt;
 }

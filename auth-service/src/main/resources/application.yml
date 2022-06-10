@@ -3,6 +3,6 @@ server:
 
 spring:
   application:
-    name: CART-SERVICE
+    name: AUTH-SERVICE
   zipkin:
     base-url: http://127.0.0.1:9411/

@@ -27,6 +27,14 @@ spring:
           uri: lb://PAYMENT-SERVICE
           predicates:
             - Path=/payments/**
+        - id: AUTH-SERVICE
+          uri: lb://AUTH-SERVICE
+          predicates:
+            - Path=/auth/**
+        - id: CART-SERVICE
+          uri: lb://CART-SERVICE
+          predicates:
+            - Path=/carts/**
 
 
 

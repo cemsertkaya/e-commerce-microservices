@@ -1,7 +1,5 @@
 package com.archTech.userservice.controller;
 
-import com.archTech.userservice.entity.AuthLogin;
-import com.archTech.userservice.entity.AuthSignUp;
 import com.archTech.userservice.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

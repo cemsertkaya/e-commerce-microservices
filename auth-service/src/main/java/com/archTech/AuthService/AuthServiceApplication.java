@@ -1,4 +1,4 @@
-package com.archTech.OrderService;
+package com.archTech.AuthService;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,11 +8,11 @@ import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @EnableEurekaClient
-public class OrderServiceApplication
+public class AuthServiceApplication
 {
 
 	public static void main(String[] args) {
-		SpringApplication.run(OrderServiceApplication.class, args);
+		SpringApplication.run(AuthServiceApplication.class, args);
 	}
 
 	@Bean
