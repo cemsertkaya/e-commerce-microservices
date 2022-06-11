@@ -1,10 +1,9 @@
 package com.archTech.gateaway.demo.security;
 
-import com.archTech.gateaway.demo.config.JwtConfig;
+import com.archTech.gateaway.demo.models.config.JwtConfig;
 import com.archTech.gateaway.demo.exception.JwtTokenIncorrectStructureException;
 import com.archTech.gateaway.demo.exception.JwtTokenMalformedException;
 import com.archTech.gateaway.demo.exception.JwtTokenMissingException;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;

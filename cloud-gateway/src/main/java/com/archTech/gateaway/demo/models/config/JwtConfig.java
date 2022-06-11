@@ -1,4 +1,4 @@
-package com.archTech.gateaway.demo.config;
+package com.archTech.gateaway.demo.models.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
