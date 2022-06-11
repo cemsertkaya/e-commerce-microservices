@@ -11,22 +11,32 @@ spring:
           uri: lb://USER-SERVICE
           predicates:
             - Path=/users/**
+          filters:
+            - AuthenticationFilter
         - id: DEPARTMENT-SERVICE
           uri: lb://DEPARTMENT-SERVICE
           predicates:
             - Path=/departments/**
+          filters:
+            - AuthenticationFilter
         - id: ORDER-SERVICE
           uri: lb://ORDER-SERVICE
           predicates:
             - Path=/orders/**
+          filters:
+            - AuthenticationFilter
         - id: PRODUCT-SERVICE
           uri: lb://PRODUCT-SERVICE
           predicates:
             - Path=/products/**
+          filters:
+            - AuthenticationFilter
         - id: PAYMENT-SERVICE
           uri: lb://PAYMENT-SERVICE
           predicates:
             - Path=/payments/**
+          filters:
+            - AuthenticationFilter
         - id: AUTH-SERVICE
           uri: lb://AUTH-SERVICE
           predicates:
@@ -35,6 +45,8 @@ spring:
           uri: lb://CART-SERVICE
           predicates:
             - Path=/carts/**
+          filters:
+            - AuthenticationFilter
 
 
 
@@ -46,6 +58,11 @@ eureka:
       defaultZone : http://localhost:8761/eureka/
   instance:
     hostname: localhost
+
+
+
+jwt:
+  secret: tokensecret
 
 
 
