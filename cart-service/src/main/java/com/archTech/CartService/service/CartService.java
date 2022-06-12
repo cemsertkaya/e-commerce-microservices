@@ -18,12 +18,13 @@ public class CartService
     @Autowired
     private CartRepository cartRepository;
 
-
-
     @Autowired
     private RestTemplate restTemplate;
 
-    public Cart addCart(Cart cart) {return  cartRepository.save(cart);}
+    public Cart addCart(Cart cart)
+    {
+        return cartRepository.save(cart);
+    }
 
 
     public List<Cart> getAllCarts() {return cartRepository.findAll();}
