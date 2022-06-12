@@ -1,4 +1,5 @@
 package com.archTech.CartService.controller;
+import com.archTech.CartService.entity.AddedProduct;
 import com.archTech.CartService.entity.Cart;
 import com.archTech.CartService.service.CartService;
 import lombok.extern.slf4j.Slf4j;
@@ -22,6 +23,9 @@ public class CartController
     {
         return cartService.addCart(order);
     }
+
+    @PostMapping("/addProductToCart")
+    public void addProduct(@RequestBody AddedProduct addedProduct) {cartService.addProductToCart(addedProduct);}
 
 
     @GetMapping("/")

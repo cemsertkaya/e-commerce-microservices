@@ -1,18 +1,18 @@
-package com.archTech.CartService.entity;
+package com.archTech.OrderService.entity;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 
+
+
 @Data
 @Entity
 @NoArgsConstructor
-@AllArgsConstructor
-@Table(name="addedProduct")
-public class AddedProduct
+@Table(name="orderProduct")
+public class OrderProduct
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,7 +21,11 @@ public class AddedProduct
     private Long productId;
     private Long quantity;
 
-    private  Long userId;
 
+    public OrderProduct(Long productId, Long quantity)
+    {
+        this.productId = productId;
+        this.quantity = quantity;
+    }
 
 }

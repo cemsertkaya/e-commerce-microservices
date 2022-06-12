@@ -16,12 +16,10 @@ public class Cart {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long cartId;
     private Long userId;
 
 
-    @OneToMany(cascade=CascadeType.ALL)
-    @JoinColumn(name="carts_id")
+    @OneToMany(cascade=CascadeType.ALL, mappedBy = "userId")
     private Set<AddedProduct> addedProducts;
 
 }

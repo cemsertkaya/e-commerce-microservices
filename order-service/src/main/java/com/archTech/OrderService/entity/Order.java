@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 
 @Entity
@@ -22,4 +23,8 @@ public class Order {
     private Long orderId;
     private Long userId;
     private String productIds;
+
+    @OneToMany(cascade=CascadeType.ALL)
+    @JoinColumn(name="orders_id")
+    private Set<OrderProduct> addedProducts;
 }

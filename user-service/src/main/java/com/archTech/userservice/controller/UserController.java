@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import com.archTech.userservice.entity.User;
+
+import java.util.List;
+
 @RestController
 @RequestMapping("/users")
 @Slf4j
@@ -34,4 +37,7 @@ public class UserController
     {
         userService.deleteAllUsers();
     }
+
+    @GetMapping("/")
+    public List<User> getAllProducts()  {return userService.getAllProducts();}
 }
