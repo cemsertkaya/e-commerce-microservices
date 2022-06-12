@@ -29,5 +29,9 @@ public class UserController
     }
 
 
-
+    @DeleteMapping("/delete")
+    public void deleteAllUsers()
+    {
+        userService.deleteAllUsers();
+    }
 }
