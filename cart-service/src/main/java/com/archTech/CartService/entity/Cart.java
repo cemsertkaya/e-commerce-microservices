@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
+import java.util.Set;
 
 
 @Entity
@@ -17,6 +18,10 @@ public class Cart {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long cartId;
     private Long userId;
-    private String productIds;
+
+
+    @OneToMany(cascade=CascadeType.ALL)
+    @JoinColumn(name="carts_id")
+    private Set<AddedProduct> addedProducts;
 
 }

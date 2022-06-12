@@ -1,5 +1,5 @@
 package com.archTech.CartService.service;
-import com.archTech.CartService.VO.ResponseTemplateVO;
+
 import com.archTech.CartService.entity.Cart;
 import com.archTech.CartService.repository.CartRepository;
 import com.archTech.product.entity.Product;
@@ -25,20 +25,7 @@ public class CartService
 
     public Cart findCartById(Long cartId) {return cartRepository.findByCartId(cartId);}
 
-    public ResponseTemplateVO getCartWithProducts(Long cartId) {
-        ResponseTemplateVO vo = new ResponseTemplateVO();
-        Cart cart = cartRepository.findByCartId(cartId);
+    public List<Cart> getAllCarts() {return cartRepository.findAll();}
 
-        List<Product> products = new ArrayList<>();
-
-        for (String id : cart.getProductIds().split(",")) {
-            Product product = restTemplate.getForObject("http://localhost:9001/carts/" + id, Product.class);
-            products.add(product);
-        }
-
-        vo.setCart(cart);
-        vo.setProducts(products);
-
-        return vo;
-    }
+    public void deleteAllCarts() {cartRepository.deleteAll();}
 }
