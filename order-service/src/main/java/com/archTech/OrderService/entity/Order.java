@@ -22,9 +22,7 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long orderId;
     private Long userId;
-    private String productIds;
 
-    @OneToMany(cascade=CascadeType.ALL)
-    @JoinColumn(name="orders_id")
-    private Set<OrderProduct> addedProducts;
+    @OneToMany(cascade=CascadeType.ALL, mappedBy = "orderId")
+    private Set<OrderedProduct> orderedProducts;
 }

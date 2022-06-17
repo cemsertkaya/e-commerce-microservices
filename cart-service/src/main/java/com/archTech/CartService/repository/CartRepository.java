@@ -1,6 +1,5 @@
 package com.archTech.CartService.repository;
-import com.archTech.CartService.entity.AddedProduct;
-import com.archTech.CartService.entity.Cart;
+import com.archTech.CartService.entity.Cart.Cart;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 

@@ -1,4 +1,4 @@
-package com.archTech.CartService.entity;
+package com.archTech.CartService.entity.Cart;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,7 +16,7 @@ public class Cart {
 
     @Id
     private Long userId;
-
+    private Double totalPrice = Double.valueOf(0);
 
     @OneToMany(cascade=CascadeType.ALL, mappedBy = "userId")
     private Set<AddedProduct> addedProducts;

@@ -1,4 +1,4 @@
-package com.archTech.OrderService.repository;
+package com.archTech.OrderService.VO.repository;
 
 
 

@@ -1,6 +1,8 @@
 package com.archTech.CartService.controller;
-import com.archTech.CartService.entity.AddedProduct;
-import com.archTech.CartService.entity.Cart;
+import com.archTech.CartService.entity.Cart.AddedProduct;
+import com.archTech.CartService.entity.Cart.Cart;
+import com.archTech.CartService.entity.Order.Order;
+import com.archTech.CartService.entity.Payment.PaymentInfo;
 import com.archTech.CartService.service.CartService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,4 +36,11 @@ public class CartController
     @DeleteMapping("/delete")
     public void deleteAllCarts() { cartService.deleteAllCarts();}
 
+    @PostMapping("/payCart")
+    public Order payCart(@RequestBody PaymentInfo payInfo)
+    {
+        return cartService.payCart(payInfo);
+    }
 }
+
+
