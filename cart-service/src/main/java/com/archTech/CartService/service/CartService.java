@@ -44,7 +44,7 @@ public class CartService
 
     public void addProductToCart(AddedProduct addedProduct)
     {
-        Cart cart = cartRepository.findByUserId(addedProduct.getUserId());
+        Cart cart = cartRepository.findCartByUserId(addedProduct.getUserId());
 
 
         Product product = restTemplate.getForObject("http://localhost:9001/products/" + addedProduct.getProductId(), Product.class);
@@ -66,7 +66,7 @@ public class CartService
 
     public Order payCart(PaymentInfo payInfo)
     {
-        Cart cart = cartRepository.findByUserId(payInfo.getUserId());
+        Cart cart = cartRepository.findCartByUserId(payInfo.getUserId());
 
         if (cart.getAddedProducts().isEmpty())
         {
@@ -90,5 +90,10 @@ public class CartService
         }
 
 
+    }
+
+    public Cart findCartByUserId(Long userId)
+    {
+        return  cartRepository.findCartByUserId(userId);
     }
 }
