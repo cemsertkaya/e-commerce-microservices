@@ -7,6 +7,7 @@ import com.archTech.AuthService.entity.AuthLogin;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -19,14 +20,14 @@ public class AuthController {
 
     @PostMapping(value = "/register", consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},
             produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
-    public User signUp(@RequestBody AuthSignUp auth) {
-        return (User) authService.signUp(auth);
+    public ResponseEntity<Object> signUp(@RequestBody AuthSignUp auth) {
+        return authService.signUp(auth);
     }
 
     @PostMapping(value = "/login", consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},
             produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
-    public User logIn(@RequestBody AuthLogin auth) {
-        return (User) authService.login(auth);
+    public ResponseEntity<Object> logIn(@RequestBody AuthLogin auth) {
+        return  authService.login(auth);
     }
 
 }

@@ -9,9 +9,9 @@ import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
 import javax.crypto.SecretKeyFactory;
@@ -38,9 +38,9 @@ public class AuthService
     @Autowired
     private JwtTokenUtil jwtTokenUtil;
 
-    public User signUp(AuthSignUp signUpAuth)
+    public ResponseEntity<Object> signUp(AuthSignUp signUpAuth)
     {
-        if (findUserByEmail(signUpAuth.getEmail()) != null) return null;
+        if (findUserByEmail(signUpAuth.getEmail()) != null) return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
 
         AuthUser authUserToCreate = new AuthUser();
         authUserToCreate.setEmail(signUpAuth.getEmail());
@@ -59,19 +59,22 @@ public class AuthService
         User user = restTemplate.postForObject("http://localhost:9002/users/", request, User.class);
         assert user != null;
         user.setToken(generateJWT(user));
-        return user;
+
+        return ResponseEntity.status(HttpStatus.OK).body(user);
     }
 
-    public User login(AuthLogin loginAuth)
+    public ResponseEntity<Object> login(AuthLogin loginAuth)
     {
         AuthUser authUser = findUserByEmail(loginAuth.getEmail());
-        if (authUser == null) return null;
-        if (!verifyPassword(authUser, loginAuth.getPassword())) return null;
+        if (authUser == null) return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+        if (!verifyPassword(authUser, loginAuth.getPassword())) return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
 
         User user = restTemplate.getForObject("http://localhost:9002/users/" + authUser.getUserId(), User.class);
         assert user != null;
         user.setToken(generateJWT(user));
-        return user;
+
+
+        return ResponseEntity.status(HttpStatus.OK).body(user);
     }
 
     public AuthUser findUserByEmail(String email) {

@@ -10,9 +10,7 @@ import java.util.Set;
 @NoArgsConstructor
 public class Order
 {
-
     private Long orderId;
     private Long userId;
     private Set<OrderProduct> addedProducts;
-
 }
