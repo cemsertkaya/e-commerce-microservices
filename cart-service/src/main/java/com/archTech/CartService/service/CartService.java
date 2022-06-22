@@ -49,14 +49,15 @@ public class CartService
 
         Product product = restTemplate.getForObject("http://localhost:9001/products/" + addedProduct.getProductId(), Product.class);
 
+        log.info(String.valueOf(addedProduct.getProductId()));
 
         if (cart.getTotalPrice() == null)
         {
-            cart.setTotalPrice(product.getPrice());
+            cart.setTotalPrice(product.getPrice() * product.getPrice());
         }
         else
         {
-            cart.setTotalPrice(cart.getTotalPrice() + product.getPrice());
+            cart.setTotalPrice(cart.getTotalPrice() + product.getPrice() * product.getAmount());
         }
 
         cart.getAddedProducts().add(addedProduct);

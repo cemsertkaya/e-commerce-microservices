@@ -20,6 +20,8 @@ public class AddedProduct
     private Long addedProductId;
     private Long productId;
     private Long quantity;
-    private  Long userId;
-
+    private Long userId;
+    private String productName;
+    private String category;
+    private Double price;
 }
