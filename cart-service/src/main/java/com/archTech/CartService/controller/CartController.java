@@ -41,6 +41,12 @@ public class CartController
     {
         return cartService.payCart(payInfo);
     }
+
+    @GetMapping("/{id}")
+    public Cart getCartWithUserId(@PathVariable("id") Long userId)
+    {
+        return cartService.findCartByUserId(userId);
+    }
 }
 
 
