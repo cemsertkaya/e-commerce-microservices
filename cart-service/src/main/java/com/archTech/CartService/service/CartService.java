@@ -51,16 +51,9 @@ public class CartService
 
         log.info(String.valueOf(addedProduct.getProductId()));
 
-        if (cart.getTotalPrice() == null)
-        {
-            cart.setTotalPrice(product.getPrice() * product.getPrice());
-        }
-        else
-        {
-            cart.setTotalPrice(cart.getTotalPrice() + product.getPrice() * product.getAmount());
-        }
+        cart.addProduct(addedProduct);
 
-        cart.getAddedProducts().add(addedProduct);
+        cart.calculateTotalPrice();
 
         cartRepository.save(cart);
     }

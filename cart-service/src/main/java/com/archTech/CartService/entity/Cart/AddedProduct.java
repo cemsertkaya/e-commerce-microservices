@@ -22,6 +22,5 @@ public class AddedProduct
     private Long quantity;
     private Long userId;
     private String productName;
-    private String category;
     private Double price;
 }
