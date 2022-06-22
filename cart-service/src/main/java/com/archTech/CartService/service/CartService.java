@@ -79,6 +79,10 @@ public class CartService
 
             addedProductRepository.deleteAllInBatch(cart.getAddedProducts());
             cart.getAddedProducts().clear();
+
+            cart.setTotalPrice(0.0);
+
+            cartRepository.save(cart);
             return order;
 
         }
